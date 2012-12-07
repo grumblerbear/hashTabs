@@ -35,18 +35,18 @@
 
 <p>Tabs with hash</p>
 
-<p>View <a href="http://htmlpreview.github.com/?https://github.com/grumblerbear/hashTabs/blob/master/demo.html">demo.html</a></p>
+<p>View demo.html</p>
       
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
           <script src="http://htmlpreview.github.com/?https://github.com/grumblerbear/hashTabs/blob/master/jquery.hash-tabs.js"></script>
         	<script>
-        $(function(){
-        	$('.demo').hashTabs({
+        jQuery(function(){
+        	jQuery('.demo').hashTabs({
         		clickCallback: function(){
-        			console.log('Click on ' + $(this).attr('href'));
+        			console.log('Click on ' + jQuery(this).attr('href'));
         		},
         		openCallback: function() {
-        			console.log('Open ' + $(this).attr('href'));
+        			console.log('Open ' + jQuery(this).attr('href'));
         		}
         	});
         });
