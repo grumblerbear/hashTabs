@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Demo hash-tabs</title>
+	
+	<meta charset="utf-8">
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="jquery.hash-tabs.js"></script>
+	<script>
+$(function(){
+	$('.demo').hashTabs({
+		clickCallback: function(){
+			console.log('Click on ' + $(this).attr('href'));
+		},
+		openCallback: function() {
+			console.log('Open ' + $(this).attr('href'));
+		}
+	});
+});
+	</script>
+	<style>
+.demo .tab {
+	display: none;
+}
+.demo .tab.active {
+	display: block;
+}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		<nav>
+			<a href="#tab1_box" class="trigger">1 tab</a>
+			<a href="#tab2_box" class="trigger">2 tab</a>
+			<a href="#tab3_box" class="trigger">3 tab</a>
+		</nav>
+		<div>
+			<div id="tab1" class="tab">Первая закладка / First tab</div>
+			<div id="tab2" class="tab">Вторая закладка / Second tab</div>
+			<div id="tab3" class="tab">Третья закладка / Three tab</div>
+		</div>
+	</div>
+</body>
+</html>
