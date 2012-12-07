@@ -1,0 +1,6 @@
+.demo .tab {
+	display: none;
+}
+.demo .tab.active {
+	display: block;
+}
