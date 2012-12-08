@@ -24,7 +24,11 @@
 				if (window.location.hash) {
 					var hash = window.location.hash;
 					var href = "[href='" + hash + "']";
-					elements.triggers.filter(href).hashTabs('switch', elements, options);
+					if (elements.triggers.filter(href).length > 0) {
+						elements.triggers.filter(href).hashTabs('switch', elements, options);
+					} else {
+						elements.triggers.filter(":first-child").hashTabs('switch', elements, options);
+					}
 				} else {
 					elements.triggers.filter(":first-child").hashTabs('switch', elements, options);
 				}
@@ -42,7 +46,6 @@
 				if (hash) {
 					elements.triggers.removeClass("active");
 					elements.tabs.removeClass("active");
-
 
 					elements.triggers.filter(href).addClass("active");
 					hash = hash.replace(options.hashPostfix, "");
