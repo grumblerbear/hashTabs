@@ -13,8 +13,8 @@
 			}, options);
 
 			return this.each(function () {
-				var elements;
 				var self = $(this);
+				var elements;
 				elements = {
 					self: self,
 					triggers: self.find(options.selectorTriggers),
@@ -43,10 +43,13 @@
 					elements.triggers.removeClass("active");
 					elements.tabs.removeClass("active");
 
-					elements.triggers.filter(href).addClass("active");
 
+					elements.triggers.filter(href).addClass("active");
 					hash = hash.replace(options.hashPostfix, "");
+
 					elements.tabs.filter(hash).addClass("active");
+
+					$(this).parents('.tab').attr('id')
 
 					options.openCallback.call(this);
 				}

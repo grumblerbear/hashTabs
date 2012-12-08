@@ -1,6 +1,64 @@
+.wrapper-demo .tab,
 .demo .tab {
 	display: none;
 }
+.wrapper-demo .tab.active,
 .demo .tab.active {
 	display: block;
+}
+
+.hash-tabs {
+	width: 600px;
+	margin: 100px auto;
+}
+.hash-tabs > .triggers {
+	font-size: 0;
+}
+.hash-tabs > .triggers .trigger {
+	display: inline-block;
+	padding: 15px 30px 10px;
+
+	border: 1px solid rgba(0,0,0,0.25);
+	border-bottom-width: 0;
+	border-right-width: 0;
+
+	color: #4e4e47;
+	font: bold 16px 'Myriad Pro',sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	background: #ebeec5;
+	background: -moz-linear-gradient(top, #ebeec5 0%, #c1c3a1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebeec5), color-stop(100%,#c1c3a1));
+	background: -webkit-linear-gradient(top, #ebeec5 0%,#c1c3a1 100%);
+	background: -o-linear-gradient(top, #ebeec5 0%,#c1c3a1 100%);
+	background: -ms-linear-gradient(top, #ebeec5 0%,#c1c3a1 100%);
+	background: linear-gradient(to bottom, #ebeec5 0%,#c1c3a1 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebeec5', endColorstr='#c1c3a1',GradientType=0 );
+
+	background-clip: padding-box;
+}
+.hash-tabs > .triggers .trigger:first-child {
+	border-radius: 5px 0 0 0;
+}
+.hash-tabs > .triggers .trigger:last-child {
+	border-radius: 0 5px 0 0;
+	border-right: 1px solid rgba(0,0,0,0.25);
+}
+.hash-tabs > .triggers .trigger.active {
+	background: #fbfbe9;
+	margin-bottom: -1px;
+	padding-bottom: 11px;
+}
+.hash-tabs > .tabs {
+	border: 1px solid rgba(0,0,0,0.25);
+	background: #fbfbe9;
+	padding: 20px;
+	color: #4e4e47;
+	font: 14px 'Myriad Pro',sans-serif;
+}
+.hash-tabs .tab {
+}
+.hash-tabs .tab pre {
+	font: 12px 'Consolas',monospace;
 }
