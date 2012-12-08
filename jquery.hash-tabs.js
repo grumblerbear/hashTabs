@@ -49,8 +49,6 @@
 
 					elements.tabs.filter(hash).addClass("active");
 
-					$(this).parents('.tab').attr('id')
-
 					options.openCallback.call(this);
 				}
 			});
