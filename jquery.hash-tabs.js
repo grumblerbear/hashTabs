@@ -27,10 +27,10 @@
 					if (elements.triggers.filter(href).length > 0) {
 						elements.triggers.filter(href).hashTabs('switch', elements, options);
 					} else {
-						elements.triggers.filter(":first-child").hashTabs('switch', elements, options);
+						elements.triggers.first().hashTabs('switch', elements, options);
 					}
 				} else {
-					elements.triggers.filter(":first-child").hashTabs('switch', elements, options);
+					elements.triggers.first().hashTabs('switch', elements, options);
 				}
 
 				elements.triggers.on('click', function () {
@@ -65,6 +65,7 @@
 			return methods.init.apply( this, arguments );
 		} else {
 			$.error( 'Метод ' +  method + ' в jQuery.hashTabs не существует' );
+			return false;
 		}
 	};
 })( jQuery );
