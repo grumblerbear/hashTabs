@@ -8,8 +8,8 @@
 				selectorTriggers: '.trigger',
 				selectorTabs: '.tab',
 				hashPostfix: '_box',
-				clickCallback: function () {},
-				openCallback: function () {}
+				clickCallback: function (targetTab) {},
+				openCallback: function (targetTab) {}
 			}, options);
 
 			return this.each(function () {
@@ -20,6 +20,27 @@
 					triggers: self.find(options.selectorTriggers),
 					tabs: self.find(options.selectorTabs)
 				};
+
+				elements.triggers.each(function(){
+					var href = $(this).attr('href');
+					var index = $(this).index();
+					if ( !href || href == '#' ) {
+						$(this).attr('href', '#hash_tab' + index + options.hashPostfix);
+						$(elements.tabs.get(index)).attr('id', 'hash_tab' + index);
+					}
+				});
+
+				elements.tabs.each(function(){
+					var id = $(this).attr('id');
+					var index = $(this).index();
+					if ( !id ) {
+						var href = $(elements.triggers.get(index)).attr('href');
+						href = href.replace("#", "");
+						href = href.replace(options.hashPostfix, "");
+
+						$(this).attr('id', href);
+					}
+				});
 
 				if (window.location.hash) {
 					var hash = window.location.hash;
@@ -34,7 +55,8 @@
 				}
 
 				elements.triggers.on('click', function () {
-					options.clickCallback.call(this);
+					var index = $(this).index();
+					options.clickCallback.call(this, elements.tabs.get(index));
 					$(this).hashTabs('switch', elements, options);
 				});
 			});
@@ -52,7 +74,7 @@
 
 					elements.tabs.filter(hash).addClass("active");
 
-					options.openCallback.call(this);
+					options.openCallback.call(this, elements.tabs.filter(hash));
 				}
 			});
 		}

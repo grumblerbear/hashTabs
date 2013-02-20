@@ -12,6 +12,10 @@ $(function(){
 	$('.wrapper-demo').hashTabs({
 		selectorTriggers: '> .triggers > .trigger',
 		selectorTabs: '> .tabs > .tab'
+//		clickCallback: function(targetTab){
+//			$('.wrapper-demo > .tabs > .tab').hide();
+//			$(targetTab).slideDown();
+//		}
 	});
 	$('.demo').hashTabs({
 		clickCallback: function(){
@@ -35,22 +39,22 @@ $(function(){
 			<a href="#demo_box" class="trigger">Demo</a>
 		</nav>
 		<div class="tabs">
-			<div id="html" class="tab">
+			<div class="tab">
 				<pre>
 &lt;div class="demo"&gt;
 	&lt;nav&gt;
-		&lt;a href="#tab1_box" class="trigger"&gt;1 tab&lt;/a&gt;
-		&lt;a href="#tab2_box" class="trigger"&gt;2 tab&lt;/a&gt;
-		&lt;a href="#tab3_box" class="trigger"&gt;3 tab&lt;/a&gt;
+		&lt;a class="trigger"&gt;1 tab&lt;/a&gt;
+		&lt;a class="trigger"&gt;2 tab&lt;/a&gt;
+		&lt;a class="trigger"&gt;3 tab&lt;/a&gt;
 	&lt;/nav&gt;
 	&lt;div&gt;
-		&lt;div id="tab1" class="tab"&gt;Первая закладка / First tab&lt;/div&gt;
-		&lt;div id="tab2" class="tab"&gt;Вторая закладка / Second tab&lt;/div&gt;
-		&lt;div id="tab3" class="tab"&gt;Третья закладка / Three tab&lt;/div&gt;
+		&lt;div class="tab"&gt;Первая закладка / First tab&lt;/div&gt;
+		&lt;div class="tab"&gt;Вторая закладка / Second tab&lt;/div&gt;
+		&lt;div class="tab"&gt;Третья закладка / Three tab&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 			</div>
-			<div id="css" class="tab">
+			<div class="tab">
 				<pre>
 .demo .tab {
 	display: none;
@@ -59,20 +63,20 @@ $(function(){
 	display: block;
 }</pre>
 			</div>
-			<div id="js" class="tab">
+			<div class="tab">
 				<pre>$('.demo').hashTabs({});</pre>
 			</div>
-			<div id="demo" class="tab">
+			<div class="tab">
 				<div class="demo">
 					<nav>
-						<a href="#tab1_box" class="trigger">1 tab</a>
-						<a href="#tab2_box" class="trigger">2 tab</a>
-						<a href="#tab3_box" class="trigger">3 tab</a>
+						<a class="trigger">1 tab</a>
+						<a class="trigger">2 tab</a>
+						<a class="trigger">3 tab</a>
 					</nav>
 					<div>
-						<div id="tab1" class="tab">Первая закладка / First tab</div>
-						<div id="tab2" class="tab">Вторая закладка / Second tab</div>
-						<div id="tab3" class="tab">Третья закладка / Three tab</div>
+						<div class="tab">Первая закладка / First tab</div>
+						<div class="tab">Вторая закладка / Second tab</div>
+						<div class="tab">Третья закладка / Three tab</div>
 					</div>
 				</div>
 			</div>
