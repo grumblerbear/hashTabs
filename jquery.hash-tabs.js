@@ -2,7 +2,7 @@
 
 	var methods;
 	methods = {
-		init: function (options) {
+		'init': function (options) {
 			//noinspection JSValidateTypes
 			options = $.extend({
 				selectorTriggers: '.trigger',
@@ -13,6 +13,8 @@
 			}, options);
 
 			return this.each(function () {
+				$(this).addClass('hash-tabs-wrapper');
+
 				var self = $(this);
 				var elements;
 				elements = {
@@ -22,6 +24,8 @@
 				};
 
 				elements.triggers.each(function(){
+					$(this).addClass('hash-trigger-wrapper');
+
 					var href = $(this).attr('href');
 					var index = $(this).index();
 					if ( !href || href == '#' ) {
@@ -31,6 +35,8 @@
 				});
 
 				elements.tabs.each(function(){
+					$(this).addClass('hash-tab-wrapper');
+
 					var id = $(this).attr('id');
 					var index = $(this).index();
 					if ( !id ) {
@@ -61,8 +67,16 @@
 				});
 			});
 		},
-		switch: function (elements, options) {
+		'switch': function (elements, options) {
 			return this.each(function () {
+				if ( $(this).parents('.hash-tab-wrapper') ) {
+					$(this).parents('.hash-tab-wrapper').each(function(){
+						var id = $(this).attr('id');
+						var href = "[href^='#" + id + "']";
+						$('.trigger' + href).trigger('click');
+					});
+				}
+
 				var hash = $(this).attr('href');
 				var href = "[href='" + hash + "']";
 				if (hash) {
